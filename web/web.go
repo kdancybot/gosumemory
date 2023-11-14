@@ -30,7 +30,7 @@ func reader(conn *websocket.Conn) {
 			log.Println(err)
 			return
 		}
-		fmt.Println(string(p))
+		log.Println(string(p))
 
 		if err := conn.WriteMessage(messageType, p); err != nil {
 			log.Println(err)
@@ -94,7 +94,7 @@ func HTTPServer() {
 	http.HandleFunc("/json", handler)
 	err = http.ListenAndServe(config.Config["serverip"], nil)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		time.Sleep(5 * time.Second)
 		log.Fatalln(err)
 	}

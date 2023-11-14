@@ -44,7 +44,7 @@ func resolveTourneyClients(procs []mem.Process) ([]mem.Process, error) {
 				return nil, err
 			}
 			totalClients = teamSize * 2
-			fmt.Println("Total expected amount of tournament clients:", totalClients)
+			log.Println("Total expected amount of tournament clients:", totalClients)
 			break
 		}
 	}
@@ -52,7 +52,7 @@ func resolveTourneyClients(procs []mem.Process) ([]mem.Process, error) {
 	if totalClients == 0 {
 		return nil, errors.New("total clients is 0")
 	}
-	fmt.Println("[TOURNAMENT] Awaiting all clients to load...")
+	log.Println("[TOURNAMENT] Awaiting all clients to load...")
 	var tourneyClients []mem.Process
 	for len(procs) != totalClients+1 {
 		procs, err = mem.FindProcess(osuProcessRegex)
@@ -68,10 +68,10 @@ func resolveTourneyClients(procs []mem.Process) ([]mem.Process, error) {
 		counter := 0
 		for err != nil {
 			if counter >= 30 {
-				fmt.Println("Time's up! exiting tournament mode, failed after 30 attempts")
+				log.Println("Time's up! exiting tournament mode, failed after 30 attempts")
 				return nil, errors.New("Tournament client timeout")
 			}
-			fmt.Println(fmt.Sprintf("[TOURNAMENT] %s, waiting for it...", err))
+			log.Println(fmt.Sprintf("[TOURNAMENT] %s, waiting for it...", err))
 			time.Sleep(1 * time.Second)
 			counter++
 			client, err = mem.FindWindow(fmt.Sprintf("Tournament Client %d", i))

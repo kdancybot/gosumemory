@@ -40,7 +40,7 @@ func calculateMP3Time() (int32, error) {
 	var t int64
 	r, err := os.Open(memory.MenuData.Bm.Path.FullMP3Path)
 	if err != nil {
-		fmt.Println(err)
+		log.Println(err)
 		return 0, err
 	}
 

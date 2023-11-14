@@ -26,7 +26,7 @@ func Injct(pid int) error {
 	exPath := filepath.Dir(ex)
 	_, err = os.Stat("gameoverlay")
 	if err != nil {
-		fmt.Println("[GAMEOVERLAY] Downloading gameoverlay... (can take a while, filesize is around 60MB)")
+		log.Println("[GAMEOVERLAY] Downloading gameoverlay... (can take a while, filesize is around 60MB)")
 		err = downloadFile("https://omk.pics/12/wVugx", "gameoverlay.zip")
 		if err != nil {
 			return err
@@ -46,7 +46,7 @@ func Injct(pid int) error {
 	if err != nil {
 		return err
 	}
-	fmt.Println("[GAMEOVERLAY] Initialized successfully, see https://github.com/l3lackShark/gosumemory/wiki/GameOverlay for tutorial")
+	log.Println("[GAMEOVERLAY] Initialized successfully, see https://github.com/l3lackShark/gosumemory/wiki/GameOverlay for tutorial")
 	return nil
 }
 

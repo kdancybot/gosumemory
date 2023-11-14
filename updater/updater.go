@@ -16,7 +16,7 @@ const version = "1.3.8"
 
 // DoSelfUpdate updates the application
 func DoSelfUpdate() {
-	fmt.Println("Checking Updates... (can take some time if you have bad routing to GitHub)")
+	log.Println("Checking Updates... (can take some time if you have bad routing to GitHub)")
 	name, err := os.Executable()
 	if err != nil {
 		log.Fatalln(err)

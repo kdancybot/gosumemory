@@ -100,11 +100,11 @@ var internalDB osudb
 
 //InitDB initializes osu database and gets data within it
 func InitDB() error {
-	fmt.Println("[DB] Awaiting memory data...")
+	log.Println("[DB] Awaiting memory data...")
 	for memory.DynamicAddresses.IsReady != true {
 		time.Sleep(500 * time.Millisecond)
 	}
-	fmt.Println("[DB] Parsing osu!db...")
+	log.Println("[DB] Parsing osu!db...")
 	dbpath := strings.TrimSuffix(memory.SongsFolderPath, "\\Songs")
 	file, err := os.Open(filepath.Join(dbpath, "osu!.db"))
 	if err != nil {
@@ -150,7 +150,7 @@ func InitDB() error {
 	}
 	internalDB = osudb{}
 	debug.FreeOSMemory()
-	fmt.Println("[DB] Done parsing osu!db")
+	log.Println("[DB] Done parsing osu!db")
 
 	return nil
 }

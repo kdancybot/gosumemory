@@ -99,7 +99,7 @@ func GetEditorData() {
 			if memory.MenuData.GameMode == 0 && memory.MenuData.OsuStatus == 1 {
 				err := readEditorData(&data, ezeditor, false)
 				if err != nil {
-					fmt.Println(err)
+					log.Println(err)
 				}
 				memory.GameplayData.PP.Pp = int32(data.Total)
 				memory.MenuData.Bm.Stats.BeatmapAR = float32(data.AR)

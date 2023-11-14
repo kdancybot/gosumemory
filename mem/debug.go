@@ -70,9 +70,9 @@ func log(format string, args ...interface{}) {
 	}
 
 	for i := int32(0); i < atomic.LoadInt32(&indent)*4; i++ {
-		fmt.Printf(" ")
+		log.Printf(" ")
 	}
-	fmt.Printf(format, args...)
+	log.Printf(format, args...)
 }
 
 func logRead(b []byte, n int, off int64, err error) {

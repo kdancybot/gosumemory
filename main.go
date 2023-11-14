@@ -17,7 +17,19 @@ import (
 	"github.com/l3lackShark/gosumemory/web"
 )
 
+func ChangeLogDestinationToFile() {
+	f, err := os.OpenFile("gosumemory.log", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0664)
+	if err != nil {
+		log.Fatalf("error opening file: %v", err)
+	}
+	log.SetOutput(f)
+	
+	// Not explicitly closing file is bad, 
+	// but it shouldn't become a problem with only one config file opened
+}
+
 func main() {
+	ChangeLogDestinationToFile()
 	config.Init()
 	updateTimeFlag := flag.Int("update", cast.ToInt(config.Config["update"]), "How fast should we update the values? (in milliseconds)")
 	shouldWeUpdate := flag.Bool("autoupdate", true, "Should we auto update the application?")
