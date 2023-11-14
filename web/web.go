@@ -9,8 +9,8 @@ import (
 	"time"
 
 	"github.com/gorilla/websocket"
-	"github.com/l3lackShark/gosumemory/config"
-	"github.com/l3lackShark/gosumemory/memory"
+	"github.com/kdancybot/gosumemory/config"
+	"github.com/kdancybot/gosumemory/memory"
 	"github.com/spf13/cast"
 )
 

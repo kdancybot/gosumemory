@@ -46,7 +46,7 @@ func Injct(pid int) error {
 	if err != nil {
 		return err
 	}
-	log.Println("[GAMEOVERLAY] Initialized successfully, see https://github.com/l3lackShark/gosumemory/wiki/GameOverlay for tutorial")
+	log.Println("[GAMEOVERLAY] Initialized successfully, see https://github.com/kdancybot/gosumemory/wiki/GameOverlay for tutorial")
 	return nil
 }
 

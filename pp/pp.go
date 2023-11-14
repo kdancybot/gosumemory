@@ -13,7 +13,7 @@ import (
 	"github.com/Wieku/gosu-pp/beatmap/difficulty"
 	"github.com/Wieku/gosu-pp/performance/osu"
 	"github.com/k0kubun/pp"
-	"github.com/l3lackShark/gosumemory/memory"
+	"github.com/kdancybot/gosumemory/memory"
 	"github.com/spf13/cast"
 )
 

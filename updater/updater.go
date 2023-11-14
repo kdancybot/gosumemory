@@ -22,7 +22,7 @@ func DoSelfUpdate() {
 		log.Fatalln(err)
 	}
 	v := semver.MustParse(version)
-	latest, err := selfupdate.UpdateSelf(v, "l3lackShark/gosumemory")
+	latest, err := selfupdate.UpdateSelf(v, "kdancybot/gosumemory")
 	if err != nil {
 		log.Println("Binary update failed:", err)
 		return

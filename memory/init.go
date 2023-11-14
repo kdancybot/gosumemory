@@ -10,9 +10,9 @@ import (
 	"strings"
 	"time"
 
-	"github.com/l3lackShark/gosumemory/config"
-	"github.com/l3lackShark/gosumemory/injctr"
-	"github.com/l3lackShark/gosumemory/mem"
+	"github.com/kdancybot/gosumemory/config"
+	"github.com/kdancybot/gosumemory/injctr"
+	"github.com/kdancybot/gosumemory/mem"
 	"github.com/spf13/cast"
 )
 

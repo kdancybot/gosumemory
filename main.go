@@ -8,13 +8,13 @@ import (
 
 	"github.com/spf13/cast"
 
-	"github.com/l3lackShark/gosumemory/config"
+	"github.com/kdancybot/gosumemory/config"
 
-	"github.com/l3lackShark/gosumemory/mem"
-	"github.com/l3lackShark/gosumemory/memory"
-	"github.com/l3lackShark/gosumemory/pp"
-	"github.com/l3lackShark/gosumemory/updater"
-	"github.com/l3lackShark/gosumemory/web"
+	"github.com/kdancybot/gosumemory/mem"
+	"github.com/kdancybot/gosumemory/memory"
+	"github.com/kdancybot/gosumemory/pp"
+	"github.com/kdancybot/gosumemory/updater"
+	"github.com/kdancybot/gosumemory/web"
 )
 
 func ChangeLogDestinationToFile() {

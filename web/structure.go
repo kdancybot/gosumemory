@@ -5,7 +5,7 @@ import (
 	"time"
 
 	"github.com/k0kubun/pp"
-	"github.com/l3lackShark/gosumemory/memory"
+	"github.com/kdancybot/gosumemory/memory"
 )
 
 //SetupStructure sets up ws and json output
