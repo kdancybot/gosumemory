@@ -2,6 +2,7 @@ package mem
 
 import (
 	"fmt"
+	"log"
 	"runtime"
 	"strings"
 	"sync/atomic"
@@ -35,7 +36,7 @@ func beginDebug() {
 		stack[i], stack[j] = stack[j], stack[i]
 	}
 	for _, s := range stack {
-		log("%s\n", s)
+		logInternal("%s\n", s)
 		atomic.AddInt32(&indent, 1)
 	}
 }
@@ -64,7 +65,7 @@ func endDebug() {
 	atomic.StoreInt32(&indent, 0)
 }
 
-func log(format string, args ...interface{}) {
+func logInternal(format string, args ...interface{}) {
 	if !Debug {
 		return
 	}
@@ -87,8 +88,8 @@ func logRead(b []byte, n int, off int64, err error) {
 		} else {
 			arr = "[...]"
 		}
-		log("Read(0x%x, %d): %s\n", uint64(off), n, arr)
+		logInternal("Read(0x%x, %d): %s\n", uint64(off), n, arr)
 	} else {
-		log("Read(0x%x, %d): %v\n", uint64(off), n, err)
+		logInternal("Read(0x%x, %d): %v\n", uint64(off), n, err)
 	}
 }

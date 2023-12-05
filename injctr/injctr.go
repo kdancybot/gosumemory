@@ -5,6 +5,7 @@ import (
 	"errors"
 	"fmt"
 	"io"
+	"log"
 	"net/http"
 	"os"
 	"os/exec"
@@ -14,7 +15,7 @@ import (
 	"strings"
 )
 
-//Injct dll into osu's process
+// Injct dll into osu's process
 func Injct(pid int) error {
 	if runtime.GOOS != "windows" {
 		return errors.New("Gameoverlay only works under windows")

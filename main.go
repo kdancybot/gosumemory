@@ -12,19 +12,18 @@ import (
 
 	"github.com/kdancybot/gosumemory/mem"
 	"github.com/kdancybot/gosumemory/memory"
-	"github.com/kdancybot/gosumemory/pp"
 	"github.com/kdancybot/gosumemory/updater"
 	"github.com/kdancybot/gosumemory/web"
 )
 
 func ChangeLogDestinationToFile() {
-	f, err := os.OpenFile("gosumemory.log", os.O_RDWR | os.O_CREATE | os.O_APPEND, 0664)
+	f, err := os.OpenFile("gosumemory.log", os.O_RDWR|os.O_CREATE|os.O_APPEND, 0664)
 	if err != nil {
 		log.Fatalf("error opening file: %v", err)
 	}
 	log.SetOutput(f)
-	
-	// Not explicitly closing file is bad, 
+
+	// Not explicitly closing file is bad,
 	// but it shouldn't become a problem with only one config file opened
 }
 
@@ -37,9 +36,7 @@ func main() {
 	songsFolderFlag := flag.String("path", config.Config["path"], `Path to osu! Songs directory ex: /mnt/ps3drive/osu\!/Songs`)
 	memDebugFlag := flag.Bool("memdebug", cast.ToBool(config.Config["memdebug"]), `Enable verbose memory debugging?`)
 	memCycleTestFlag := flag.Bool("memcycletest", cast.ToBool(config.Config["memcycletest"]), `Enable memory cycle time measure?`)
-	disablecgo := flag.Bool("cgodisable", cast.ToBool(config.Config["cgodisable"]), `Disable everything non memory-reader related? (pp counters)`)
 	flag.Parse()
-	cgo := *disablecgo
 	mem.Debug = *memDebugFlag
 	memory.MemCycle = *memCycleTestFlag
 	memory.UpdateTime = *updateTimeFlag
@@ -66,12 +63,6 @@ func main() {
 	// }
 	go web.SetupStructure()
 	go web.SetupRoutes()
-	if !cgo {
-		go pp.GetData()
-		go pp.GetFCData()
-		go pp.GetMaxData()
-		go pp.GetEditorData()
-	}
 	web.HTTPServer()
 
 }

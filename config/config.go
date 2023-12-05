@@ -7,13 +7,13 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/kdancybot/config"
+	"github.com/l3lackShark/config"
 )
 
-//Config file
+// Config file
 var Config map[string]string
 
-//Init the config file
+// Init the config file
 func Init() {
 	ex, err := os.Executable()
 	if err != nil {

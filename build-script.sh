@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-target=gosumemory
+target=gosumemory-no-window
 
-# Since go doesn't support cross-compiling of C code (for obvious reasons)
-# you can just comment out all unsupported platforms for yourself
-# (I may or may not write better script later)	
+# # Since go doesn't support cross-compiling of C code (for obvious reasons)
+# # you can just comment out all unsupported platforms for yourself
+# # (I may or may not write better script later)	
+# ^ With removal of Cgo parts of project this comment is obsolete 
 platforms=(
 	"linux/amd64" "linux/386"
 	"windows/amd64" "windows/386"
@@ -24,7 +25,7 @@ do
 		flags+="-ldflags -H=windowsgui"
 	fi	
 	
-	CC=gcc CGO_ENABLED=1 GOOS=$GOOS GOARCH=$GOARCH go build $flags -o $target
+	GOOS=$GOOS GOARCH=$GOARCH go build $flags -o build/$output_name
 	if [ $? -ne 0 ]; then
    		echo 'An error has occurred! Aborting the script execution...'
 		exit 1
