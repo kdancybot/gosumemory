@@ -1,4 +1,7 @@
-### Just a recompiled version of gosumemory with hidden console since I couldn't find how to hide it in the original version
+### Differences between this fork and original version:
+- Updated memory offsets for osu!stable 20231217.1 
+- Hidden console
+- No PP calculation
 
 -----------------------------------------------------------
 
