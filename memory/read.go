@@ -98,11 +98,11 @@ type menuD struct {
 	Folder             string  `mem:"[[Beatmap] + 0x78]"`
 	Creator            string  `mem:"[[Beatmap] + 0x7C]"`
 	Name               string  `mem:"[[Beatmap] + 0x80]"`
-	Path               string  `mem:"[[Beatmap] + 0x94]"`
+	Path               string  `mem:"[[Beatmap] + 0x90]"`
 	Difficulty         string  `mem:"[[Beatmap] + 0xB0]"`
-	MapID              int32   `mem:"[Beatmap] + 0xCC"`
-	SetID              int32   `mem:"[Beatmap] + 0xD0"`
-	RankedStatus       int32   `mem:"[Beatmap] + 0x130"` // unknown, unsubmitted, pending/wip/graveyard, unused, ranked, approved, qualified
+	MapID              int32   `mem:"[Beatmap] + 0xC8"`
+	SetID              int32   `mem:"[Beatmap] + 0xCC"`
+	RankedStatus       int32   `mem:"[Beatmap] + 0x12C"` // unknown, unsubmitted, pending/wip/graveyard, unused, ranked, approved, qualified
 	MD5                string  `mem:"[[Beatmap] + 0x6C]"`
 	ObjectCount        int32   `mem:"[Beatmap] + 0xFC"`
 	//BeatmapMode        int32   `mem:"[Beatmap] + 0x118"`
@@ -134,7 +134,7 @@ type gameplayD struct {
 	HitErrors           []int32 `mem:"[[[Ruleset + 0x68] + 0x38] + 0x38]"`
 	Mode                int32   `mem:"[[Ruleset + 0x68] + 0x38] + 0x64"`
 	MaxCombo            int16   `mem:"[[Ruleset + 0x68] + 0x38] + 0x68"`
-	ScoreV2             int32   `mem:"Ruleset + 0x100"`
+	ScoreV2             int32   `mem:"[[Ruleset + 0x68] + 0x38] + 0x68"`
 	Hit100              int16   `mem:"[[Ruleset + 0x68] + 0x38] + 0x88"`
 	Hit300              int16   `mem:"[[Ruleset + 0x68] + 0x38] + 0x8A"`
 	Hit50               int16   `mem:"[[Ruleset + 0x68] + 0x38] + 0x8C"`

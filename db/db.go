@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"encoding/binary"
 	"errors"
-	"fmt"
 	"io"
 	"log"
 	"os"
@@ -93,12 +92,12 @@ type timingPoint struct {
 	inheritedTimingPoint bool
 }
 
-//OsuDB is a structure representation of osu!.db file
+// OsuDB is a structure representation of osu!.db file
 var OsuDB osudb
 
 var internalDB osudb
 
-//InitDB initializes osu database and gets data within it
+// InitDB initializes osu database and gets data within it
 func InitDB() error {
 	log.Println("[DB] Awaiting memory data...")
 	for memory.DynamicAddresses.IsReady != true {
